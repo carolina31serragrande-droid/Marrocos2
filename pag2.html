@@ -4,9 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Marrocos na Copa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" type="image/svg=xml" href="img/favicon.svg">
   <style>
-    :root {
+
+body {
+      background: white;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+      overflow-x: hidden;
+    }
+/* MENU */
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+/* Menu responsivo */
+.menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+            background: rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+.logo{
+    position: relative;
+    z-index: 2000;
+}
+.logo img {
+    height: 45px;
+}
+ 
+.links {
+    display: flex;
+    gap: 30px;
+}
+ 
+.links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+ 
+.links a::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #C1272d;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+ 
+.links a:hover::after {
+    width: 100%;
+}
+
+:root {
       --verde: #006233;
       --vermelho: #C1272D;
       --ouro: #D4A017;
@@ -17,56 +86,13 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      background-color: var(--areia);
-      color: var(--texto);
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-    }
 
     /* ─── GRAIN OVERLAY ─── */
     body::before {
       content: '';
       position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none; z-index: 999;
     }
-
-    /* ─── NAVBAR ─── */
-    .menu {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      z-index: 100;
-    }
-
-    .logo img { height: 45px; }
-
-    .menu .links { display: flex; gap: 30px; }
-
-    .menu .links a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      position: relative;
-    }
-
-    .menu .links a::after {
-      content: "";
-      position: absolute;
-      width: 0%; height: 2px;
-      background: var(--vermelho);
-      left: 0; bottom: -5px;
-      transition: width 0.3s ease;
-    }
-
-    .menu .links a:hover::after { width: 100%; }
 
     /* ─── HERO HEADER ─── */
     header {
@@ -92,22 +118,8 @@
       pointer-events: none;
     }
 
-    .star-emblem {
-      font-size: 3.5rem;
-      line-height: 1;
-      display: block;
-      margin-bottom: 0.5rem;
-      animation: floatStar 3s ease-in-out infinite;
-      position: relative; z-index: 1;
-    }
-
-    @keyframes floatStar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
     header h1 {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-weight: 900;
       font-size: clamp(2.2rem, 7vw, 5rem);
       color: #fff;
@@ -164,7 +176,7 @@
     }
 
     .section-title {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 4vw, 2.6rem);
       color: var(--verde);
       text-align: center;
@@ -240,7 +252,7 @@
     }
 
     .tl-year {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
       font-weight: 900;
       color: var(--vermelho);
@@ -309,7 +321,7 @@
     }
 
     .hbox h3 {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
       margin-bottom: 1rem;
       color: var(--ouro);
@@ -353,7 +365,7 @@
     .stat-card:hover { background: rgba(193,39,45,0.2); }
 
     .stat-number {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 900;
       color: var(--ouro);
@@ -368,57 +380,15 @@
       margin-top: 0.5rem;
     }
 
-    .footer {
-            background: #000000;
-            color: #fff;
-            text-align: center;
-            padding: 60px 20px 30px;
-        }
-
-        .footer-content h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #C1272D;
-        }
-
-        .footer-content p {
-            color: #ccc;
-            font-size: 16px;
-        }
-
-        .footer-links {
-            margin: 25px 0;
-        }
-
-        .footer-links a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .footer-links a::after {
-            content: "";
-            width: 0%;
-            height: 2px;
-            background: #C1272D;
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            transition: 0.3s;
-        }
-
-        .footer-links a:hover::after {
-            width: 100%;
-        }
-
-        .linha-footer {
-           width: 80%;
-           height: 1px;
-           background: #333;
-           margin: 30px auto;
-        }
-
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--verde);
+      text-align: center;
+      padding: 2rem 1rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+    }
+    footer strong { color: var(--ouro); }
 
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp {
@@ -488,7 +458,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 3rem;
       font-weight: 900;
       color: rgba(255,255,255,0.25);
@@ -498,7 +468,7 @@
     .player-info { padding: 1.1rem 1.2rem 1.3rem; }
 
     .player-name {
-      font-family: Arial, sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--escuro);
@@ -545,7 +515,6 @@
     }
 
     .footer-content h3 {
-      font-family: Arial, sans-serif;
       font-size: 28px;
       margin-bottom: 10px;
       color: var(--vermelho);
@@ -556,6 +525,7 @@
     .footer-links { margin: 25px 0; }
 
     .footer-links a {
+      font-family: Arial, sans-serif;
       color: white;
       margin: 0 15px;
       text-decoration: none;
@@ -592,13 +562,30 @@
 
     /* Tablet */
     @media (max-width: 900px) {
-      .menu { padding: 16px 30px; }
+  
       .players-grid {
         grid-template-columns: repeat(2, 1fr);
       }
       .stats-grid { gap: 1rem; }
     }
+    @media (max-width: 768px) {
+            .menu {
+                padding: 15px 20px;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
 
+            .links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .conteudo h1 {
+                font-size: 40px;
+            }
+        }
     /* Mobile hamburger */
     .hamburger {
       display: none;
@@ -662,28 +649,26 @@
   </style>
 </head>
 <body>
+<!-- MENU -->
+<section class="hero">
+    <header class="menu">
+        <div class="logo">
+            <a href="pag1.html">
+                <img src="img/favicon.svg" alt="logo">
+            </a>
+        </div>
 
-  <!-- NAVBAR -->
-  <nav class="menu">
-    <div class="logo">
-      <a href="pag1.html">
-        <img src="img/logo.png" alt="Logo Marrocos" />
-      </a>
-    </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="links" id="navlinks">
-      <a href="pag2.html" onclick="closeMenu()">História</a>
-      <a href="pag3.html" onclick="closeMenu()">Jogadores</a>
-      <a href="pag4.html" onclick="closeMenu()">Galeria</a>
-      <a href="pag5.html" onclick="closeMenu()">Últimas notícias</a>
-    </div>
-  </nav>
+        <nav class="links">
+            <a href="pag2.html">História</a>
+            <a href="pag3.html">Jogadores</a>
+            <a href="pag4.html">Galeria</a>
+            <a href="pag5.html">Últimas notícias</a>
+        </nav>
+    </header>
+    </section>
 
   <!-- HERO HEADER -->
   <header>
-    <span class="star-emblem">&#9790;&#9733;</span>
     <h1>Marrocos <span>na Copa</span></h1>
     <p class="header-sub">A história das Águias do Atlas no Mundial</p>
   </header>
@@ -817,7 +802,7 @@
     <div class="players-grid">
 
       <div class="player-card">
-        <div class="player-avatar" id="av-zaki"><div class="img-placeholder">ZB</div></div>
+        <div class="player-avatar" id="av-zaki"><div class="img-placeholder"><img src="img/zaki.jpg"></div></div>
         <div class="player-info">
           <div class="player-name">Zaki Badou</div>
           <div class="player-pos">Goleiro</div>
@@ -827,7 +812,7 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-dolmy"><div class="img-placeholder">AD</div></div>
+        <div class="player-avatar" id="av-dolmy"><div class="img-placeholder"><img src="img/Abdelmajid Dolmy.jpg"></div></div>
         <div class="player-info">
           <div class="player-name">Abdelmajid Dolmy</div>
           <div class="player-pos">Meia-atacante</div>
@@ -837,17 +822,17 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-bassir"><div class="img-placeholder">SB</div></div>
+        <div class="player-avatar" id="av-bassir"><div class="img-placeholder"><img src="img/Salaheddine Bassir.jpg"></div></div>
         <div class="player-info">
           <div class="player-name">Salaheddine Bassir</div>
           <div class="player-pos">Atacante</div>
           <div class="player-era">1998 · França</div>
-          <div class="player-desc">Artilheiro da Copa de 98 pela seleção marroquina. Seu doblete contra a Escócia (3–0) na fase de grupos ficou gravado na história do futebol africano.</div>
+          <div class="player-desc">Artilheiro da Copa de 98 pela seleção marroquina. Seu doblete contra a Escócia (3-0) na fase de grupos ficou gravado na história do futebol africano.</div>
         </div>
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-hadji"><div class="img-placeholder">MH</div></div>
+        <div class="player-avatar" id="av-hadji"><div class="img-placeholder"><img src="img/Mustapha Hadji.webp"></div></div>
         <div class="player-info">
           <div class="player-name">Mustapha Hadji</div>
           <div class="player-pos">Meia</div>
@@ -857,7 +842,7 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-ziyech"><div class="img-placeholder">HZ</div></div>
+        <div class="player-avatar" id="av-ziyech"><div class="img-placeholder"><img src="img/hakim ziyech.webp"></div></div>
         <div class="player-info">
           <div class="player-name">Hakim Ziyech</div>
           <div class="player-pos">Meia-atacante</div>
@@ -867,7 +852,7 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-hakimi"><div class="img-placeholder">AH</div></div>
+        <div class="player-avatar" id="av-hakimi"><div class="img-placeholder"><img src="img/Achraf Hakimi.webp"></div></div>
         <div class="player-info">
           <div class="player-name">Achraf Hakimi</div>
           <div class="player-pos">Lateral-direito</div>
@@ -877,7 +862,7 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-bounou"><div class="img-placeholder">YB</div></div>
+        <div class="player-avatar" id="av-bounou"><div class="img-placeholder"><img src="img/Yassine Bounou.webp"></div></div>
         <div class="player-info">
           <div class="player-name">Yassine Bounou</div>
           <div class="player-pos">Goleiro</div>
@@ -887,7 +872,7 @@
       </div>
 
       <div class="player-card">
-        <div class="player-avatar" id="av-ennesy"><div class="img-placeholder">YE</div></div>
+        <div class="player-avatar" id="av-ennesy"><div class="img-placeholder"><img src="img/Youssef En-Nesyri.webp"></div></div>
         <div class="player-info">
           <div class="player-name">Youssef En-Nesyri</div>
           <div class="player-pos">Atacante</div>
@@ -916,6 +901,18 @@
   </footer>
 
   <script>
+     // Efeito de scroll no menu
+     window.addEventListener("scroll", function () {
+      const menu = document.querySelector(".menu");
+
+      if (window.scrollY > 50) {
+        menu.style.background = "rgba(0, 0, 0, 0.95)";
+        menu.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.5)";
+      } else {
+        menu.style.background = "rgba(0, 0, 0, 0.3)";
+        menu.style.boxShadow = "none";
+      }
+    });
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const navlinks  = document.getElementById('navlinks');
@@ -929,6 +926,7 @@
       hamburger.classList.remove('open');
       navlinks.classList.remove('open');
     }
+
 
     // Load player photos from Wikipedia API (free/open license images)
     const players = [
